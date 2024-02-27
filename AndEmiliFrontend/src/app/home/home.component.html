@@ -1,1 +1,21 @@
-<p>home works!</p>
+<mat-grid-list cols="2" rowHeight="12:1">
+    <mat-grid-tile>
+        <div class="pagination-controls">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-slide-toggle color="primary" (change)="showFavoritesOnlyStateChanged($event)">Show only favorites</mat-slide-toggle>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+<mat-list>
+<app-card *ngFor="let card of cards | paginate: { itemsPerPage: 10, currentPage: p }"
+    [card]="card"
+    [userCards]="userCards"
+    [userId]="userId"
+    (updatedFavorites)="updateFavorites($event)"
+></app-card>
+</mat-list>
