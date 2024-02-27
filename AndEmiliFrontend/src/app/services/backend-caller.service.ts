@@ -9,7 +9,7 @@ import { UserDtoResponse } from '../dto/UserDtoResponse';
   providedIn: 'root',
 })
 export class BackendCallerService {
-  private url = "http://localhost:8080/";
+  private url = "api/";
   constructor(private http: HttpClient) { }
 
   GetOrCreateUser(email: string): Observable<UserDtoResponse> {
